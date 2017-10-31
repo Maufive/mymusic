@@ -1,15 +1,4 @@
-//=====================//
-//  Main SCSS Imports  //
-//=====================//
-
-// GENERAL STYLES 
 @import 'general/variables';
 @import 'general/animations';
-
-// COMPONENT STYLES
 @import 'components/app';
 @import 'components/header';
-
-#root {
-  background: blue;
-}
