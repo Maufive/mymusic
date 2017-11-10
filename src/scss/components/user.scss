@@ -1,41 +1,6 @@
 .user {
   display: flex;
   flex-direction: column;
-  .user-info {
-    height: 30vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    background: $black;
-    color: $white;
-    padding: 20px;
-    .profile-pic {
-      max-height: 126px;
-      max-width: 126px;
-      border-radius: 50%; 
-    }
-    .account-info {
-      display: flex;
-      flex-direction: column;
-      h2 {
-        font-size: 3rem;
-      }
-    }
-    .weekly-fire {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      > img {
-        max-width: 126px;
-        max-height: 126px;
-        border-radius: 50%;
-      }
-      > div {
-        padding: 0 10px;
-      }
-    }
-  }
 }
 
 .filter-buttons {
@@ -92,4 +57,40 @@
 }
 .track-info:hover {
   opacity: 1;
+}
+
+.user-info {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  background: $white;
+  color: $black;
+  padding: 20px;
+  .profile-pic {
+    max-height: 126px;
+    max-width: 126px;
+    border-radius: 50%;
+  }
+  .account-info {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-size: 3rem;
+    }
+  }
+  .weekly-fire {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    >img {
+      max-width: 126px;
+      max-height: 126px;
+      border-radius: 50%;
+    }
+    >div {
+      padding: 0 10px;
+    }
+  }
 }

@@ -37,8 +37,8 @@ class RenderArtists extends Component {
       .then(response => artists = response)
       // För varje artist så plockar jag ut hur många 'plays' varje artist har och trycker in dom i en array.
       .then(response => {
-        response.forEach(name => {
-          const plays = parseInt(name.playcount);
+        response.forEach(artist => {
+          const plays = parseInt(artist.playcount);
           playcount.push(plays);
         });
       })
