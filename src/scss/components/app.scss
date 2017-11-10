@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
 @import '../general/variables';
 
-body {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-size: $bodyfont-size;
   color: $bodycolor;
-  box-sizing: border-box;
+  background-color: $white;
+  margin: 0;
+  padding: 0;
 }

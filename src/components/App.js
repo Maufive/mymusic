@@ -1,63 +1,64 @@
 import React, { Component } from 'react';
-import Chart from './Chart';
+import { key } from '../helpers';
+import Header from './Header';
+import Jumbotron from './Jumbotron';
+import User from './User';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: {
-        topArtists: []
+        name: 'tjenalaeget',
+        userInfo: null,
+        recentTracks: null,
+        isLoggedIn: true
       }
-    }
-    this.getAlbums = this.getAlbums.bind(this);
-    this.getLabels = this.getLabels.bind(this);
-    this.renderChart = this.renderChart.bind(this);
+    };
+    this.getUserInfo = this.getUserInfo.bind(this);
+    this.getRecentTracks = this.getRecentTracks.bind(this);
   }
 
   componentWillMount() {
-    this.getAlbums();
+    this.getUserInfo();
+    this.getRecentTracks();
   }
 
-  getAlbums() {
-    const API_KEY = '3bd2bb523f1e2d97d92147aa51b6a9fb';
-    const USER = 'tjenalaeget';
-    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${USER}&api_key=${API_KEY}&format=json&period=7day&limit=6`;
+  getRecentTracks() {
+    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${this.state.user.name}&api_key=${key}&format=json&limit=5&extended`;
     fetch(URL)
       .then(response => response.json())
-      .then (response => response.topartists.artist)
-      .then(response => this.setState({
-        user: { ...this.state.user, topArtists: response }
-      }));
-
-      // Ta namnen (STRING) från varje OBJ i ARR och passa som props till Chart />
-      console.log(this.state);
+      .then(response => response.recenttracks.track)
+      .then(response =>
+        this.setState({
+          user: { ...this.state.user, recentTracks: response }
+        })
+      );
   }
 
-  getLabels() {
-    const artists = this.state.user.topArtists;
-    const artistNames = [];
-    artists.forEach((name) => {
-      const artistName = name.name
-      artistNames.push(artistName);
-    });
-    return artistNames;
-  }
-
-  renderChart() {
-    return (
-      <Chart getLabels={this.getLabels()} />
-    );
+  getUserInfo() {
+    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${this.state.user.name}&api_key=${key}&format=json`;
+    fetch(URL)
+      .then(response => response.json())
+      .then(response =>
+        this.setState({
+          user: { ...this.state.user, userInfo: response }
+        })
+      );
   }
 
   render() {
     return (
       <div className="App">
-        <h2>hello this is app component</h2>
-        <button onClick={this.getAlbums}>Get artists</button>
-        <button onClick={this.renderChart}>Render Chart</button>
-        <div>
-          {this.renderChart()}
-        </div>
+        <Header />
+        {this.state.user.isLoggedIn ? null : <Jumbotron />}
+        {this.state.user.userInfo && this.state.user.recentTracks ? (
+          <User
+            username={this.state.user.name}
+            info={this.state.user.userInfo}
+            recentTracks={this.state.user.recentTracks}
+          />
+        ) : null}
       </div>
     );
   }

@@ -1,0 +1,74 @@
+.navbar {
+  background: $white;
+  color: $primary-color;
+  height: 3rem;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation > ul {
+  display: inline-flex;
+  list-style: none;
+  > li {
+    padding: 0 10px;
+  }
+}
+
+.jumbotron {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  h1 {
+    font-weight: 400;
+    margin-bottom: 20px;
+    span {
+      font-weight: 700;
+    }
+  }
+  h3 {
+    font-weight: 300;
+  }
+}
+
+.button-group {
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  a.primary {
+    background: $primary-color;
+    color: $white;
+    border: 1px solid $white;
+    width: 75px;
+    text-align: center;
+    padding: 5px 10px;
+    transition: all 0.3s ease-out;
+  }
+  a.primary:hover {
+    background: $white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    cursor: pointer;
+  }
+  a.secondary {
+    background: $white;
+    color: $black;
+    border: 1px solid $black;
+    text-align: center;
+    padding: 5px 10px;
+    transition: all 0.3s ease-out;
+  }
+  a.secondary:hover {
+    background: $black;
+    color: $white;
+    border: 1px solid $white;
+    cursor: pointer;
+  }
+}

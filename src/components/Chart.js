@@ -1,69 +1,47 @@
 import React, { Component } from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
-class Chart extends Component { 
-  constructor(props) {
-    super(props);
-    this.asdf = this.asdf.bind(this);
-  }
-
-  artistChart = {
-    labels: this.props.labels,     // Namn på artist/låt/album
-    datasets: [{
-      label: this.props.labelType, // Artist/Tracks/Albums
-      data: [
-        this.props.playcount       // På något sätt få in playcount för varje låt/artist/album
-      ],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(255, 206, 86, 0.6)',
-        'rgba(75, 192, 192, 0.6)',
-        'rgba(153, 102, 255, 0.6)',
-        'rgba(255, 159, 64, 0.6)',
-        'rgba(255, 99, 132, 0.6)'
-      ]
-    }]
-  }
-
+class Chart extends Component {
   chartExample = {
-    labels: this.props.getLabels,
-    datasets: [{
-      label: 'Artists',
-      data: [
-        617594,
-        181045,
-        153060,
-        106519,
-        105162,
-        95072
-      ],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(255, 206, 86, 0.6)',
-        'rgba(75, 192, 192, 0.6)',
-        'rgba(153, 102, 255, 0.6)',
-        'rgba(255, 159, 64, 0.6)',
-        'rgba(255, 99, 132, 0.6)'
-      ]
-    }]
-  }
+    labels: this.props.labels,
+    datasets: [
+      {
+        label: 'Artists',
+        data: this.props.playcount,
+        backgroundColor: this.props.color
+      }
+    ]
+  };
 
-  asdf() {
-    console.log(this.props.getLabels);
-  }
+  options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
+    title: {
+      display: true,
+      fontSize: 22,
+      color: '#3a3a3a',
+      text: this.props.title
+    },
+    scales: {
+      xAxes: [
+        {
+          gridLines: {
+            display: false
+          }
+        }
+      ]
+    }
+  };
 
   render() {
     return (
       <div className="chart">
-        <p>Chart</p>
-        <Doughnut 
-          data={this.chartExample}
-        />
-        <button onClick={this.asdf}>labels???</button>
+        <Bar data={this.chartExample} options={this.options} />
       </div>
-    )
+    );
   }
 }
 
