@@ -37,7 +37,7 @@
 
 .button-group {
   display: flex;
-  width: 250px;
+  width: 350px;
   justify-content: space-between;
   margin-top: 20px;
   padding: 10px;
@@ -45,9 +45,8 @@
   a.primary {
     background: $primary-color;
     color: $white;
-    width: 75px;
     text-align: center;
-    padding: 5px 10px;
+    padding: 10px 20px;
     transition: all 0.3s ease-out;
   }
   a.primary:hover {
@@ -60,7 +59,7 @@
     color: $black;
     border: 1px solid $black;
     text-align: center;
-    padding: 5px 10px;
+    padding: 10px 20px;
     transition: all 0.3s ease-out;
   }
   a.secondary:hover {
@@ -68,6 +67,9 @@
     color: $white;
     border: 1px solid $white;
     cursor: pointer;
+  }
+  svg {
+    font-size: 1.3rem;
   }
 }
 
@@ -77,4 +79,5 @@
   font-size: $bodyfont-size;
   color: $ltgrey;
   padding-left: 5px;
+  outline-color: rgba($primary-color, 1);
 }

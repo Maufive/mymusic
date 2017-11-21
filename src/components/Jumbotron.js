@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MdSearch from 'react-icons/lib/md/search';
 
 class Jumbotron extends Component {
   constructor() {
@@ -18,8 +19,8 @@ class Jumbotron extends Component {
         </h1>
         <h3>see what you and your friends are listening to</h3>
         <div className="button-group">
-          <a className="secondary" onClick={this.highlight}>search user</a>
-          <a className="primary">log in</a>
+          <a className="secondary" disabled>log in</a>
+          <a className="primary" onClick={this.highlight}>search user <MdSearch /></a>
         </div>
       </div>
     );

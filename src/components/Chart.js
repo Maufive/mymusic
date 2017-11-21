@@ -45,15 +45,15 @@ class Chart extends Component {
               color: '#CFCFCF',
               text: this.state.title
             },
-            scales: {
-              xAxes: [
-                {
-                  gridLines: {
-                    display: false
-                  }
-                }
-              ]
-            }
+            // scales: {
+            //   xAxes: [
+            //     {
+            //       gridLines: {
+            //         display: false
+            //       }
+            //     }
+            //   ]
+            // }
           }}
         />
       </div>

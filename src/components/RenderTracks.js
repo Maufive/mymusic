@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Chart from './Chart';
-import { key } from '../helpers';
+import { key, Colors } from '../helpers';
 
 class RenderTracks extends Component {
   constructor(props) {

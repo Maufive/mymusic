@@ -6,7 +6,6 @@ const RecentTrackList = props => {
     <ul className="recent-tracklist">
       {props.recentTracks.map(track => (
         <li key={track.name}>
-          {console.log(track)}
           <div className="image-bg">
             <img src={track.image[2]['#text']} alt="album cover" />
             <p>
