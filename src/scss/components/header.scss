@@ -1,13 +1,13 @@
 .navbar {
-  background: $white;
-  color: $primary-color;
+  background: $black;
+  color: $ltgrey;
   height: 3rem;
   padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
+.brand { color: $primary-color; }
 .navigation > ul {
   display: inline-flex;
   list-style: none;
@@ -45,7 +45,6 @@
   a.primary {
     background: $primary-color;
     color: $white;
-    border: 1px solid $white;
     width: 75px;
     text-align: center;
     padding: 5px 10px;
@@ -54,7 +53,6 @@
   a.primary:hover {
     background: $white;
     color: $primary-color;
-    border: 1px solid $primary-color;
     cursor: pointer;
   }
   a.secondary {
@@ -71,4 +69,12 @@
     border: 1px solid $white;
     cursor: pointer;
   }
+}
+
+#search-user {
+  background: none;
+  border: none;
+  font-size: $bodyfont-size;
+  color: $ltgrey;
+  padding-left: 5px;
 }

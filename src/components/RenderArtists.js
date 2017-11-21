@@ -7,27 +7,23 @@ class RenderArtists extends Component {
     super(props);
     this.state = {
       artists: null,
-      range: props.range,
       artistLabels: null,
-      artistPlaycount: null
+      artistPlaycount: null,
     };
     this.getArtists = this.getArtists.bind(this);
-
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getArtists();
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ range: nextProps.range });
+    this.getArtists(nextProps.range, nextProps.username);
   }
 
-  getArtists() {
+  getArtists(range, username) {
     // Hämtar data från LAST FM med användarnamn, API nyckel samt Range (Tidsram)
-    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${this
-      .props.username}&api_key=${key}&format=json&period=${this.state
-      .range}&limit=50`;
+    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${key}&format=json&period=${range}&limit=50`;
     const playcount = [];
     const labels = [];
     let artists = null;
@@ -60,20 +56,18 @@ class RenderArtists extends Component {
 
   
   render() {
-    const renderChart = <Chart
-                          labels={this.state.artistLabels}
-                          playcount={this.state.artistPlaycount}
-                          color={'#BDDE5C'}
-                          title={'most played artists'}
-                        />;
-
     if (!this.state.artistLabels) {
       return <p>Loading Artists...</p>;
     }
 
     return (
       <div>
-        {this.state.artistLabels ? renderChart : null }
+        <Chart
+          labels={this.state.artistLabels}
+          playcount={this.state.artistPlaycount}
+          color={'#BDDE5C'}
+          title={'most played artists'}
+        />
       </div>
     );
   }

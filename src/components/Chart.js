@@ -2,44 +2,60 @@ import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 class Chart extends Component {
-  chartExample = {
-    labels: this.props.labels,
-    datasets: [
-      {
-        label: 'Artists',
-        data: this.props.playcount,
-        backgroundColor: this.props.color
-      }
-    ]
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      labels: this.props.labels,
+      playcount: this.props.playcount,
+      title: this.props.title
+    };
+  }
 
-  options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      display: false
-    },
-    title: {
-      display: true,
-      fontSize: 22,
-      color: '#3a3a3a',
-      text: this.props.title
-    },
-    scales: {
-      xAxes: [
-        {
-          gridLines: {
-            display: false
-          }
-        }
-      ]
-    }
-  };
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      labels: nextProps.labels,
+      playcount: nextProps.playcount,
+      title: nextProps.title
+    });
+  }
 
   render() {
     return (
       <div className="chart">
-        <Bar data={this.chartExample} options={this.options} />
+        <Bar
+          data={{
+            labels: this.state.labels,
+            datasets: [
+              {
+                label: 'Artists',
+                data: this.state.playcount,
+                backgroundColor: this.props.color
+              }
+            ]
+          }}
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+              display: false
+            },
+            title: {
+              display: true,
+              fontSize: 22,
+              color: '#CFCFCF',
+              text: this.state.title
+            },
+            scales: {
+              xAxes: [
+                {
+                  gridLines: {
+                    display: false
+                  }
+                }
+              ]
+            }
+          }}
+        />
       </div>
     );
   }
