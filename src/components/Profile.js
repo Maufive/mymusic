@@ -28,7 +28,7 @@ class Profile extends Component {
   }
 
   getTrackChart(username) {
-    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=${username}&api_key=${key}&format=json`;
+    const URL = `https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=${username}&api_key=${key}&format=json`;
     fetch(URL)
       .then(response => response.json())
       .then(response => response.weeklytrackchart.track[0])
@@ -40,7 +40,7 @@ class Profile extends Component {
   }
 
   getRecentTracks(username) {
-    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${key}&format=json&limit=7&extended`;
+    const URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${key}&format=json&limit=7&extended`;
     fetch(URL)
       .then(response => response.json())
       .then(response => response.recenttracks.track)
@@ -52,7 +52,7 @@ class Profile extends Component {
   }
 
   getUserInfo(username) {
-    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${username}&api_key=${key}&format=json`;
+    const URL = `https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${username}&api_key=${key}&format=json`;
     fetch(URL)
       .then(response => response.json())
       .then(response =>
@@ -64,7 +64,7 @@ class Profile extends Component {
 
   getImage() {
     if (this.state.userInfo.user.image[1]['#text'] === '') {
-      return 'http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_large.png';
+      return 'https://cdn.last.fm/flatness/catalogue/noimage/2/default_user_large.png';
     }
     return this.state.userInfo.user.image[2]['#text'];
   }

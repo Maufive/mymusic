@@ -23,7 +23,7 @@ class RenderArtists extends Component {
 
   getArtists(range, username) {
     // Hämtar data från LAST FM med användarnamn, API nyckel samt Range (Tidsram)
-    const URL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${key}&format=json&period=${range}&limit=50`;
+    const URL = `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${key}&format=json&period=${range}&limit=50`;
     const playcount = [];
     const labels = [];
     let artists = null;

@@ -9,7 +9,9 @@ import './scss/index.scss';
 class Root extends React.Component {
   render() {
     return (
-      <App />
+      <div>
+        <App />
+      </div>
     );
   }
 }
