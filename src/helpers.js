@@ -34,8 +34,22 @@ export const randomColors = () => {
     const singleColor = 'rgb(' + r + ',' + g + ',' + b + ')';
     colorArr.push(singleColor);
   };
-  for(var i = 0; i < 50; i++) {
+  for (var i = 0; i < 50; i++) {
     dynamicColors();
   }
   return colorArr;
 };
+
+export const Colors = [
+  '#fe001a',
+  '#ff6347',
+  '#BDDE5C',
+  '#eee8aa',
+  '#afeeee',
+  '#d87093',
+  '#98fb98',
+  '#663399',
+  '#4169e1',
+  '#da70d6',
+  '#f08080',
+];
