@@ -1,3 +1,51 @@
+#now-playing {
+  color: $primary-color;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 5vh 0;
+  padding: 20px;
+  .profile-pic {
+    max-height: 126px;
+    max-width: 126px;
+    border-radius: 50%;
+    margin-right: 3rem;
+  }
+  .account-info {
+    display: flex;
+    h2 {
+      font-size: 3rem;
+    }
+    #info {
+      display: flex;
+      line-height: 1.5;
+      .fragor,
+      .svar {
+        display: flex;
+        flex-direction: column;
+        span {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .weekly-fire {
+    display: flex;
+    justify-content: space-between;
+    >img {
+      max-width: 126px;
+      max-height: 126px;
+      border-radius: 50%;
+    }
+    >div {
+      padding: 0 10px;
+    }
+  }
+}
+
 .recent-tracklist-container {
   display: flex;
   flex-direction: column;
@@ -52,38 +100,4 @@
 }
 .track-info:hover {
   opacity: 1;
-}
-
-
-
-
-.user-info {
-  display: flex;
-  justify-content: space-between;
-  margin: 5vh 0;
-  padding: 20px;
-  .profile-pic {
-    max-height: 126px;
-    max-width: 126px;
-    border-radius: 50%;
-    margin-right: 3rem;
-  }
-  .account-info {
-    display: flex;
-    h2 {
-      font-size: 3rem;
-    }
-  }
-  .weekly-fire {
-    display: flex;
-    justify-content: space-between;
-    >img {
-      max-width: 126px;
-      max-height: 126px;
-      border-radius: 50%;
-    }
-    >div {
-      padding: 0 10px;
-    }
-  }
 }

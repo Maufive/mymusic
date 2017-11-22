@@ -8,7 +8,8 @@ class Profile extends Component {
     this.state = {
       weeklyFire: null,
       recentTracks: null,
-      userInfo: null
+      userInfo: null,
+      nowPlaying: null
     };
     this.getTrackChart = this.getTrackChart.bind(this);
     this.getUserInfo = this.getUserInfo.bind(this);
@@ -40,15 +41,34 @@ class Profile extends Component {
   }
 
   getRecentTracks(username) {
-    const URL = `//ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${key}&format=json&limit=7&extended`;
+    const URL = `//ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${key}&format=json&limit=8&extended`;
+    const nowPlaying = {
+      song: '',
+      artist: ''
+    };
+
     fetch(URL)
       .then(response => response.json())
       .then(response => response.recenttracks.track)
-      .then(response =>
-        this.setState({
-          recentTracks: response
-        })
-      );
+      // Om Index[0] har en @attr (nowplaying) så ta bort den från arrayen för att göra en lista av recenttracks.
+      // Använd det objektet till att visa en "Now playing" i profilen.
+      .then(response => {
+        if (response[0]['@attr']) {
+          const songName = response[0].name.substring(0, 30);
+          const artistName = response[0].artist['#text'].substring(0, 30);
+          nowPlaying.song = songName;
+          nowPlaying.artist = artistName;
+          response.splice(0, 1);
+          this.setState({
+            recentTracks: response,
+            nowPlaying: nowPlaying
+          });
+        } else {
+          this.setState({
+            recentTracks: response
+          });
+        }
+      });
   }
 
   getUserInfo(username) {
@@ -77,7 +97,7 @@ class Profile extends Component {
       return <h2>Loading weeklyfire</h2>;
     }
     if (!this.state.recentTracks) {
-      return <h2>Loading</h2>;
+      return <h2>Loading RecentTracks</h2>;
     }
 
     return (
@@ -89,14 +109,29 @@ class Profile extends Component {
               src={this.getImage()}
               alt="Profile pic"
             />
+
             <div>
               <h3>user:</h3>
               <h2>{this.state.userInfo.user.name}</h2>
-              <p>
-                account created:{' '}
-                {formatDate(this.state.userInfo.user.registered.unixtime)}
-              </p>
-              <p>total playcount: {this.state.userInfo.user.playcount}</p>
+              <div id="info">
+                <div className="fragor">
+                  <p>currently playing:</p>
+                  <p>account created:</p>
+                  <p>total playcount:</p>
+                </div>
+                <div className="svar">
+                  {this.state.nowPlaying ? (
+                    <span id="now-playing">
+                      {this.state.nowPlaying.artist} -{' '}
+                      {this.state.nowPlaying.song}
+                    </span>
+                  ) : null}
+                  <span>
+                    {formatDate(this.state.userInfo.user.registered.unixtime)}
+                  </span>
+                  <span>{this.state.userInfo.user.playcount}</span>
+                </div>
+              </div>
             </div>
           </div>
 

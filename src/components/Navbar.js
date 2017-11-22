@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MdSearch from 'react-icons/lib/md/search';
+import MdNote from 'react-icons/lib/md/music-note';
 
 class Navbar extends Component {
   constructor(props) {
@@ -21,8 +23,8 @@ class Navbar extends Component {
     const username = this.state.username;
     this.props.searchUser(username);
     this.setState({
-      username: '',
-    })
+      username: ''
+    });
   }
 
   render() {
@@ -30,12 +32,13 @@ class Navbar extends Component {
       <div className="header">
         <div className="navbar">
           <div className="brand">
-            <h3>mymusic</h3>
+            <h3>mymusic <MdNote /></h3>
           </div>
           <div className="navigation">
             <ul>
               <li>
                 <form onSubmit={this.handleSubmit}>
+                <MdSearch />
                   <input
                     type="text"
                     id="search-user"

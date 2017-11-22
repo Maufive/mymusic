@@ -7,7 +7,7 @@ const RecentTrackList = props => {
       {props.recentTracks.map(track => (
         <li key={track.name}>
           <div className="image-bg">
-            <img src={track.image[2]['#text']} alt="album cover" />
+            <img src={track.image[2]['#text']} alt="album cover missing" />
             <p>
               <strong>{track.artist['#text']}</strong>
             </p>
@@ -18,6 +18,7 @@ const RecentTrackList = props => {
                 <br/>
                 About this track
               </a>
+              <h6>more coming soon :-)</h6>
             </div>
           </div>
         </li>

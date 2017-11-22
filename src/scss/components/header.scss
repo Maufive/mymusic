@@ -2,7 +2,7 @@
   background: $black;
   color: $ltgrey;
   height: 3rem;
-  padding: 0 20px;
+  padding: 5px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,8 +12,25 @@
   display: inline-flex;
   list-style: none;
   > li {
-    padding: 0 10px;
+    padding: 10px 10px;
   }
+}
+
+#search-user {
+  background: none;
+  border: none;
+  font-size: $bodyfont-size;
+  color: $ltgrey;
+  padding-left: 5px;
+  outline: none;
+  transition: all 0.2s ease-in;
+}
+#search-user:focus,
+#search-user:active {
+  border-bottom: 1px solid $primary-color;
+}
+input:-webkit-autofill {
+  box-shadow: 0 0 0 30px $black inset;
 }
 
 .jumbotron {
@@ -71,13 +88,4 @@
   svg {
     font-size: 1.3rem;
   }
-}
-
-#search-user {
-  background: none;
-  border: none;
-  font-size: $bodyfont-size;
-  color: $ltgrey;
-  padding-left: 5px;
-  outline-color: rgba($primary-color, 1);
 }
