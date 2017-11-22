@@ -47,10 +47,10 @@ class RenderArtists extends Component {
       .then(response => {
         artists.forEach(artist => {
           const name = artist.name;
-          labels.push(name);
+          const trimmed = name.substring(0, 25);
+          labels.push(trimmed);
         });
       })
-      .then(response => console.log(response))
       .then(response =>
         this.setState({
           artists: response,

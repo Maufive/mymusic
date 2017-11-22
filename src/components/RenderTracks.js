@@ -18,7 +18,7 @@ class RenderTracks extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.getTracks(nextProps.range, nextProps.username, this.props.itemsToShow);
+    this.getTracks(nextProps.range, nextProps.username, nextProps.itemsToShow);
   }
 
   randomColor() {
@@ -43,7 +43,8 @@ class RenderTracks extends Component {
       .then(response => {
         tracks.forEach(track => {
           const name = track.name;
-          labels.push(name);
+          const trimmed = name.substring(0, 25)
+          labels.push(trimmed);
         })
       })
       .then(response => this.setState({
