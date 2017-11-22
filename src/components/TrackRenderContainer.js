@@ -53,13 +53,13 @@ class ArtistRenderContainer extends Component {
               value={this.state.itemsToShow}
               onChange={this.itemsToShow}
             >
-              <option value={5}>5 artists</option>
-              <option value={10}>10 artists</option>
-              <option value={15}>15 artists</option>
-              <option value={25}>25 artists</option>
-              <option value={50}>50 artists</option>
-              <option value={75}>75 artists</option>
-              <option value={100}>100 artists</option>
+              <option value={5}>5 tracks</option>
+              <option value={10}>10 tracks</option>
+              <option value={15}>15 tracks</option>
+              <option value={25}>25 tracks</option>
+              <option value={50}>50 tracks</option>
+              <option value={75}>75 tracks</option>
+              <option value={100}>100 tracks</option>
             </select>
           </div>
           <button className="render-settings-button track-button" onClick={this.showSettings}>
