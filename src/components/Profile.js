@@ -64,6 +64,7 @@ class Profile extends Component {
             nowPlaying: nowPlaying
           });
         } else {
+          response.splice(7, 1);
           this.setState({
             recentTracks: response
           });
@@ -125,11 +126,13 @@ class Profile extends Component {
                       {this.state.nowPlaying.artist} -{' '}
                       {this.state.nowPlaying.song}
                     </span>
-                  ) : null}
+                  ) : <span>not listening at the moment</span>}
                   <span>
                     {formatDate(this.state.userInfo.user.registered.unixtime)}
                   </span>
-                  <span>{this.state.userInfo.user.playcount}</span>
+                  <span>
+                    {this.state.userInfo.user.playcount}
+                  </span>
                 </div>
               </div>
             </div>
