@@ -21,41 +21,42 @@ class Chart extends Component {
 
   render() {
     return (
-      <div className="chart">
-        <Bar
-          data={{
-            labels: this.state.labels,
-            datasets: [
-              {
-                label: 'Artists',
-                data: this.state.playcount,
-                backgroundColor: this.props.color
+      <div className="chart-container">
+        <div className="chart">
+          <Bar
+            data={{
+              labels: this.state.labels,
+              datasets: [
+                {
+                  label: 'Playcount',
+                  data: this.state.playcount,
+                  backgroundColor: this.props.color
+                }
+              ]
+            }}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: {
+                display: false
+              },
+              title: {
+                display: true,
+                fontSize: 22,
+                text: this.state.title
+              },
+              scales: {
+                xAxes: [
+                  {
+                    gridLines: {
+                      display: false
+                    }
+                  }
+                ]
               }
-            ]
-          }}
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: {
-              display: false
-            },
-            title: {
-              display: true,
-              fontSize: 22,
-              color: '#CFCFCF',
-              text: this.state.title
-            },
-            // scales: {
-            //   xAxes: [
-            //     {
-            //       gridLines: {
-            //         display: false
-            //       }
-            //     }
-            //   ]
-            // }
-          }}
-        />
+            }}
+          />
+        </div>
       </div>
     );
   }

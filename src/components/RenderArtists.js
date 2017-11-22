@@ -14,31 +14,32 @@ class RenderArtists extends Component {
   }
 
   componentDidMount() {
-    this.getArtists(this.props.range, this.props.username);
+    this.getArtists(this.props.range, this.props.username, this.props.itemsToShow);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.getArtists(nextProps.range, nextProps.username);
+    this.getArtists(nextProps.range, nextProps.username, nextProps.itemsToShow);
   }
 
   randomColor() {
     return Colors[Math.floor(Math.random() * Colors.length)];
   }
 
-  getArtists(range, username) {
+  getArtists(range, username, limit) {
     // Hämtar data från LAST FM med användarnamn, API nyckel samt Range (Tidsram)
-    const URL = `//ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${key}&format=json&period=${range}&limit=50`;
+    const URL = `//ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${key}&format=json&period=${range}&limit=${limit}`;
     const playcount = [];
     const labels = [];
     let artists = null;
     fetch(URL)
+      // Ta response och gör om det till JSON, sen förkortar jag bara response för att förbättra läsbarheten.
       .then(response => response.json())
       .then(response => response.topartists.artist)
       .then(response => (artists = response))
       // För varje artist så plockar jag ut hur många 'plays' varje artist har och trycker in dom i en array.
       .then(response => {
         response.forEach(artist => {
-          const plays = parseInt(artist.playcount);
+          const plays = parseInt(artist.playcount, 10); // 10 = Radix paramter
           playcount.push(plays);
         });
       })

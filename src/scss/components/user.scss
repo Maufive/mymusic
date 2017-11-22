@@ -6,20 +6,5 @@
 .divider {
   border-bottom: 1px solid #666666;
   width: 90%;
-  margin: 5vh auto;
-}
-
-.period-container {
-  margin: 5vh auto;
-  display: flex;
-  justify-content: space-around;
-  width: 50%;
-  #period-limit {
-    background: none;
-    color: $ltgrey;
-    font-size: 1rem;
-    border: 1px solid $ltgrey;
-    width: 250px;
-    border-radius: 0;
-  }
+  margin: $marginY auto;
 }

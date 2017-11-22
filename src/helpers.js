@@ -41,7 +41,6 @@ export const randomColors = () => {
 };
 
 export const Colors = [
-  '#fe001a',
   '#ff6347',
   '#BDDE5C',
   '#eee8aa',
