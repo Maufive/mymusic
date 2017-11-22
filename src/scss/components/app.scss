@@ -11,10 +11,11 @@ html, body {
   font-size: $bodyfont-size;
   color: $ltgrey;
   background-color: $black;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
 #root {
   width: 1200px;
+  margin: 0 auto;
 }
