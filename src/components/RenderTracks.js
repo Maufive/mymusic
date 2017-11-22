@@ -14,19 +14,19 @@ class RenderTracks extends Component {
   }
 
   componentDidMount() {
-    this.getTracks(this.props.range, this.props.username);
+    this.getTracks(this.props.range, this.props.username, this.props.itemsToShow);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.getTracks(nextProps.range, nextProps.username);
+    this.getTracks(nextProps.range, nextProps.username, this.props.itemsToShow);
   }
 
   randomColor() {
     return Colors[Math.floor(Math.random() * Colors.length)];
   }
 
-  getTracks(range, username) {
-    const URL = `//ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${key}&format=json&period=${range}&limit=50`;
+  getTracks(range, username, limit) {
+    const URL = `//ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${key}&format=json&period=${range}&limit=${limit}`;
     const playcount = [];
     const labels = [];
     let tracks = null;
