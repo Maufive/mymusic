@@ -21,20 +21,11 @@ class ArtistRenderContainer extends Component {
     this.setState({ itemsToShow: e.target.value });
   }
 
-  showSettings() {
-    const div = document.querySelector('.track-settings');
-    const button = document.querySelector('.track-button');
-    
-    div.classList.add('toggle-enter');
-    setTimeout(() => div.classList.contains('toggle-enter') && div.classList.add('toggle-active'), 150);
-    button.classList.add('active')
-  }
-
   render() {
     return (
       <div className="render-container">
         <div className="settings">
-          <div className="render-settings track-settings">
+          <div className="render-settings">
             <select
               name="period-limit"
               id="period-limit"
@@ -62,7 +53,7 @@ class ArtistRenderContainer extends Component {
               <option value={100}>100 tracks</option>
             </select>
           </div>
-          <button className="render-settings-button track-button" onClick={this.showSettings}>
+          <button className="render-settings-button" onClick={this.showSettings}>
             <MdSettings />
           </button>
         </div>

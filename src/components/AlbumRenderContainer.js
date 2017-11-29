@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RenderArtists from './RenderArtists';
+import RenderAlbums from './RenderAlbums';
 import MdSettings from 'react-icons/lib/md/settings';
 
-class ArtistRenderContainer extends Component {
+class AlbumRenderContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,20 +44,23 @@ class ArtistRenderContainer extends Component {
               value={this.state.itemsToShow}
               onChange={this.itemsToShow}
             >
-              <option value={5}>5 artists</option>
-              <option value={10}>10 artists</option>
-              <option value={15}>15 artists</option>
-              <option value={25}>25 artists</option>
-              <option value={50}>50 artists</option>
-              <option value={75}>75 artists</option>
-              <option value={100}>100 artists</option>
+              <option value={5}>5 albums</option>
+              <option value={10}>10 albums</option>
+              <option value={15}>15 albums</option>
+              <option value={25}>25 albums</option>
+              <option value={50}>50 albums</option>
+              <option value={75}>75 albums</option>
+              <option value={100}>100 albums</option>
             </select>
           </div>
-          <button className="render-settings-button" onClick={this.showSettings}>
+          <button
+            className="render-settings-button"
+            onClick={this.showSettings}
+          >
             <MdSettings />
           </button>
         </div>
-        <RenderArtists
+        <RenderAlbums
           username={this.props.username}
           range={this.state.timerange}
           itemsToShow={this.state.itemsToShow}
@@ -67,4 +70,4 @@ class ArtistRenderContainer extends Component {
   }
 }
 
-export default ArtistRenderContainer;
+export default AlbumRenderContainer;

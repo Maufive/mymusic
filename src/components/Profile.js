@@ -64,9 +64,10 @@ class Profile extends Component {
             nowPlaying: nowPlaying
           });
         } else {
-          response.splice(7, 1);
+          response.splice(8, 1);
           this.setState({
-            recentTracks: response
+            recentTracks: response,
+            nowPlaying: null
           });
         }
       });

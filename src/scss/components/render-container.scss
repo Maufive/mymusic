@@ -12,7 +12,6 @@
   display: flex;
   justify-content: space-around;
   width: 80%;
-  opacity: 0;
   transition: all 0.4s ease-out; // Ändra till cubic bezier med bounce ;)
   #period-limit {
     background: none;
@@ -24,15 +23,6 @@
   }
 }
 
-.render-settings.toggle-enter {
-  animation: slideDown 1s;
-  animation-fill-mode: both;
-}
-.render-settings.toggle-hide {
-  animation: slideUp 1s;
-  animation-fill-mode: both;
-}
-
 .render-settings-button {
   font-size: 1.5rem;
   color: $white;
@@ -42,8 +32,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.render-settings-button.active {
-  animation: rotate360 1s;
-  animation-fill-mode: both;
 }
