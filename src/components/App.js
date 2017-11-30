@@ -8,15 +8,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: ''
+      username: 'tjenalaeget'
     };
     this.searchUser = this.searchUser.bind(this);
   }
   
   searchUser(username) {
-    this.setState({
-      username: username
-    });
+    this.setState({ username: username });
   }
 
   render() {

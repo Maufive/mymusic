@@ -13,18 +13,13 @@ class Navbar extends Component {
   }
 
   handleChange(e) {
-    this.setState({
-      username: e.target.value
-    });
+    this.setState({ username: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const username = this.state.username;
     this.props.searchUser(username);
-    this.setState({
-      username: ''
-    });
   }
 
   render() {
